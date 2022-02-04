@@ -46,17 +46,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gripLocation: {fileID: 3243151604493781691}
   weaponStats:
+    weaponType: 2
     weaponName: M4A4
     damage: 25
     bulletsInClip: 30
     clipSize: 30
     fireStartDelay: 0.07
     fireRate: 0.125
+    weaponFiringPattern: 1
     fireDistance: 500
     repeating: 1
     weaponHitLayers:
       serializedVersion: 2
-      m_Bits: 0
+      m_Bits: 4294967295
   isFiring: 0
   isReloading: 0
 --- !u!1 &4908895053902194451
