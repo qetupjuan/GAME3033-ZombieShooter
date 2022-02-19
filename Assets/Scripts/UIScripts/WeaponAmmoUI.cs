@@ -33,7 +33,7 @@ public class WeaponAmmoUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (weaponComponent)
+        if (!weaponComponent)
         {
             return;
         }

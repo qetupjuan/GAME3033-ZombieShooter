@@ -1281,7 +1281,7 @@ RectTransform:
   m_GameObject: {fileID: 617043224}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 1379164715}
   - {fileID: 1819335923}
@@ -14230,6 +14230,7 @@ GameObject:
   - component: {fileID: 1764736717}
   - component: {fileID: 1764736716}
   - component: {fileID: 1764736715}
+  - component: {fileID: 1764736718}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -14293,6 +14294,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1764736718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1764736714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00297cad54f51474f94c6c669f3d445d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorActive: 1
 --- !u!114 &1786356651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14308,6 +14322,7 @@ MonoBehaviour:
   walkSpeed: 5
   runSpeed: 10
   jumpForce: 5
+  test: 0
   followTarget: {fileID: 0}
   aimSensitivity: 1
 --- !u!114 &1786356652
@@ -15131,6 +15146,7 @@ MonoBehaviour:
   walkSpeed: 5
   runSpeed: 10
   jumpForce: 5
+  test: 0
   followTarget: {fileID: 1793090661}
   aimSensitivity: 0.05
 --- !u!114 &299829352418809938

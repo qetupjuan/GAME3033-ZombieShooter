@@ -11,6 +11,8 @@ public class MovementComponent : MonoBehaviour
     float runSpeed = 10;
     [SerializeField]
     float jumpForce = 5;
+    [SerializeField] 
+    private float test = 0;
 
     private PlayerController playerController;
     Rigidbody rigidbody;
@@ -21,24 +23,36 @@ public class MovementComponent : MonoBehaviour
     Vector3 moveDirection = Vector3.zero;
     Vector2 lookInput = Vector2.zero;
 
+    float lookUpMax = 180;
+    float lookUpMin = -180;
+    float lookUpClamp;
+
     public float aimSensitivity = 0.2f;
 
     public readonly int movementXHash = Animator.StringToHash("MovementX");
     public readonly int movementYHash = Animator.StringToHash("MovementY");
     public readonly int isJumpingHash = Animator.StringToHash("isJumping");
     public readonly int isRunningHash = Animator.StringToHash("isRunning");
+    public readonly int isFiringHash = Animator.StringToHash("isFiring");
+    public readonly int isReloadingHash = Animator.StringToHash("isReloading");
+    public readonly int AimVerticalHash = Animator.StringToHash("AimVertical");
 
     private void Awake()
     {
         playerAnimator = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody>();
         playerController = GetComponent<PlayerController>();
+
+        if (!GameManager.Instance.cursorActive)
+        {
+            AppEvents.InvokeOnMouseCursorEnable(false);
+        }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        lookUpClamp = Mathf.Clamp(0.0f, lookUpMin, lookUpMax);
     }
 
     // Update is called once per frame
@@ -60,6 +74,10 @@ public class MovementComponent : MonoBehaviour
         {
             angles.x = 70;
         }
+        lookUpClamp += lookInput.y;
+        float lookParameter = Mathf.InverseLerp(lookUpMin, lookUpMax, lookUpClamp);
+
+        playerAnimator.SetFloat(AimVerticalHash, lookParameter);
 
         followTarget.transform.localEulerAngles = angles;
 
@@ -92,6 +110,11 @@ public class MovementComponent : MonoBehaviour
     }
     public void OnJump(InputValue value)
     {
+        if ( playerController.isJumping)
+        {
+            return;
+        }
+
         playerController.isJumping = value.isPressed;
         rigidbody.AddForce((transform.up + moveDirection) * jumpForce, ForceMode.Impulse);
         playerAnimator.SetBool(isJumpingHash, playerController.isJumping);
@@ -105,6 +128,7 @@ public class MovementComponent : MonoBehaviour
     public void OnLook(InputValue value)
     {
         lookInput = value.Get<Vector2>();
+        playerAnimator.SetFloat(AimVerticalHash, lookInput.y);
     }
 
     private void OnCollisionEnter(Collision collision)

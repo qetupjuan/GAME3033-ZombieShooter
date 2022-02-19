@@ -62,8 +62,6 @@ public class WeaponHolder : MonoBehaviour
         {
             StopFiring();
         }
-
-
     }
 
     public void StartFiring()
