@@ -66,6 +66,16 @@ public class MovementComponent : MonoBehaviour
 
         var angle = followTarget.transform.localEulerAngles.x;
 
+        float min = -60;
+        float max = 70.0f;
+        float range = max - min;
+        float offsetToZero = 0 - min;
+        float aimAngle = followTarget.transform.localEulerAngles.x;
+        aimAngle = (aimAngle > 180) ? aimAngle - 360 : aimAngle;
+        float val = (aimAngle + offsetToZero) / (range);
+        print(val);
+        playerAnimator.SetFloat(AimVerticalHash, val);
+
         if (angle > 180 && angle < 300)
         {
             angles.x = 300;
