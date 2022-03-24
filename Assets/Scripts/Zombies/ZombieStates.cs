@@ -5,7 +5,7 @@ using UnityEngine;
 public class ZombieStates : State
 {
     protected ZombieComponent ownerZombie;
-    public ZombieStates(ZombieComponent zombie, StateMachine stateMachine) : base(stateMachine)
+    public ZombieStates(ZombieComponent zombie, ZombieStateMachine stateMachine) : base(stateMachine)
     {
         ownerZombie = zombie;
     }
