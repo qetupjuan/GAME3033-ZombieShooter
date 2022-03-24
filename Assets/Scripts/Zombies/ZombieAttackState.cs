@@ -8,8 +8,8 @@ public class ZombieAttackState : ZombieStates
     float attackRange = 2;
     private IDamageable damageableObject;
 
-    int movementZHash = Animator.StringToHash("MovementZ");
-    int isAttackingHash = Animator.StringToHash("isAttacking");
+    public readonly int movementZHash = Animator.StringToHash("MovementZ");
+    public readonly int isAttackingHash = Animator.StringToHash("isAttacking");
 
     public ZombieAttackState(GameObject _followTarget, ZombieComponent zombie, ZombieStateMachine stateMachine) : base(zombie, stateMachine)
     {
