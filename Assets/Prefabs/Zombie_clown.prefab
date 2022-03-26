@@ -366,7 +366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9afeae4cea9b94a419a443446eea838f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 0
+  currentHealth: 150
   maxHealth: 150
 --- !u!114 &1276044479102340158
 MonoBehaviour:
@@ -392,7 +392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50a3dd5b1e377254184e57331da7bf3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zombieDamage: 5
+  zombieDamage: 20
   zombieNavmeshAgent: {fileID: 0}
   zombieAnimator: {fileID: 0}
   stateMachine: {fileID: 0}
@@ -407,10 +407,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1.9054888
+  m_Radius: 0.25
+  m_Height: 1.8866688
   m_Direction: 1
-  m_Center: {x: 0, y: 0.9259544, z: 0}
+  m_Center: {x: 0, y: 0.94, z: 0}
 --- !u!1 &1274627628094713216
 GameObject:
   m_ObjectHideFlags: 0

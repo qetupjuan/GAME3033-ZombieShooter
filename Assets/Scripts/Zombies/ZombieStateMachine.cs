@@ -63,12 +63,11 @@ public class ZombieStateMachine : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    //void Update()
-    //{
-    //    if (isRunning)
-    //    {
-    //        currentState.Update();
-    //    }
-    //}
+    void Update()
+    {
+        if (isRunning)
+        {
+            currentState.Update();
+        }
+    }
 }

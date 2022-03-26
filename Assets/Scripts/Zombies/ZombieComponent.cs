@@ -20,7 +20,7 @@ public class ZombieComponent : MonoBehaviour
 
     private void Start()
     {
-        Initialize(followTarget);
+        followTarget = GameObject.FindGameObjectWithTag("Player");
     }
     public void Initialize(GameObject _followTarget)
     {
