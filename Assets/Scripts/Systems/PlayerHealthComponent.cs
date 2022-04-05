@@ -10,5 +10,9 @@ public class PlayerHealthComponent : HealthComponent
         base.Start();
         PlayerEvents.Invoke_OnHealthInitialized(this);
     }
-
+    public override void Destroy()
+    {
+        Debug.Log("Player dead");
+        Application.Quit();
+    }
 }
