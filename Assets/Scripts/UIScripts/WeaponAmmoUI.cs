@@ -10,7 +10,7 @@ public class WeaponAmmoUI : MonoBehaviour
 
     [SerializeField] WeaponComponent weaponComponent;
 
-    private void OnEnable()
+    private void Start()
     {
         PlayerEvents.OnWeaponEquipped += OnWeaponEquipped;
     }
@@ -20,7 +20,7 @@ public class WeaponAmmoUI : MonoBehaviour
         PlayerEvents.OnWeaponEquipped -= OnWeaponEquipped;
     }
 
-    void OnWeaponEquipped(WeaponComponent _weaponComponent)
+    public void OnWeaponEquipped(WeaponComponent _weaponComponent)
     {
         weaponComponent = _weaponComponent;
     }
