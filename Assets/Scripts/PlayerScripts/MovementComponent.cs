@@ -166,15 +166,15 @@ public class MovementComponent : MonoBehaviour
         playerAnimator.SetBool(isJumpingHash, false);
 
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("CheckPoint"))
-        {
-            //respawnPoint = transform.position;
-        }
-        else if (other.CompareTag("Goal"))
-        {
-            //OnGoalReached.Invoke();
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("CheckPoint"))
+    //    {
+    //        //respawnPoint = transform.position;
+    //    }
+    //    else if (other.CompareTag("Goal"))
+    //    {
+    //        //OnGoalReached.Invoke();
+    //    }
+    //}
 }
