@@ -1,8 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using Cinemachine;
+using TMPro;
+
 
 public class MovementComponent : MonoBehaviour
 {
@@ -29,6 +32,11 @@ public class MovementComponent : MonoBehaviour
     float lookUpClamp;
 
     public float aimSensitivity = 0.2f;
+
+    [SerializeField]
+    private TextMeshProUGUI AnswerCountText;
+    public GameObject win;
+    public int AnswerCount { get; private set; }
 
     [SerializeField] 
     private CinemachineVirtualCamera cinemachineAimCamera;
@@ -166,15 +174,13 @@ public class MovementComponent : MonoBehaviour
         playerAnimator.SetBool(isJumpingHash, false);
 
     }
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.CompareTag("CheckPoint"))
-    //    {
-    //        //respawnPoint = transform.position;
-    //    }
-    //    else if (other.CompareTag("Goal"))
-    //    {
-    //        //OnGoalReached.Invoke();
-    //    }
-    //}
+    public void AddPoint()
+    {
+        AnswerCount += 1;
+        AnswerCountText.text = AnswerCount + "/6";
+        if (AnswerCount >= 6)
+        {
+            win.SetActive(true);
+        }
+    }
 }
